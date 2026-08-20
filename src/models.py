@@ -1,4 +1,5 @@
 import re # importamos la librería re para poder usar expresiones regulares
+import sqlite3
 
 
 class User: # creamos la clase User para representar a un usuario
@@ -32,5 +33,4 @@ class User: # creamos la clase User para representar a un usuario
         if not 8 <= len(new_username) <= 16: # validamos que el nuevo nombre de usuario tenga entre 8 y 16 caracteres, si no es así, lanzamos un ValueError con un mensaje de error
             raise ValueError("El usuario debe tener entre 8 y 16 caracteres")
         self.username = new_username # si la validación pasa, asignamos el nuevo nombre de usuario al atributo username del objeto User
-
         
