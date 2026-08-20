@@ -1,6 +1,6 @@
 import pytest
 
-from ifcd0112_pytest.models import User
+from models import User
 
 
 def test_user_accepts_valid_data():
