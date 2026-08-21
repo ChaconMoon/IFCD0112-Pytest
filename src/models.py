@@ -1,5 +1,4 @@
 import re # importamos la librería re para poder usar expresiones regulares
-import sqlite3
 
 
 class User: # creamos la clase User para representar a un usuario
