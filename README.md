@@ -54,7 +54,7 @@ def test_suma_tres_cinco():
     resultado = 3 + 5
 ```
 
-De momento esto es una función normal: simplemente suma 2 números que dan como resultado 8. Pero... ¿cómo sabemos si el resultado es 8? En la programación nada es seguro hasta que se prueba. Justo debajo añadimos una línea con `assert`:
+De momento esto es una función normal: simplemente suma 2 números que dan como resultado 8. Pero... ¿cómo sabemos si el resultado es 8? En la programación nada es seguro hasta que se prueba. asi que justo debajo añadimos una línea con `assert`:
 
 ```python
 def test_suma_tres_cinco():
