@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "Carlos Chacón", email = "chaconmooncarlos@gmail.com" }
 ]
-requires-python = ">=3.14"
+requires-python = "==3.13.5"
 dependencies = [
     "pytest>=9.1.1",
     "pytest-mock",

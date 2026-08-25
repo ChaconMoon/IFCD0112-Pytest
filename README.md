@@ -54,7 +54,7 @@ def test_suma_tres_cinco():
     resultado = 3 + 5
 ```
 
-De momento esto es una función normal: simplemente suma 2 números que dan como resultado 8. Pero... ¿cómo sabemos si el resultado es 8? En la programación nada es seguro hasta que se prueba. Justo debajo añadimos una línea con `assert`:
+De momento esto es una función normal: simplemente suma 2 números que dan como resultado 8. Pero... ¿cómo sabemos si el resultado es 8? En la programación nada es seguro hasta que se prueba, asi que justo debajo añadimos una línea con `assert` para comprobar que el resultado es el esperado:
 
 ```python
 def test_suma_tres_cinco():
@@ -62,13 +62,13 @@ def test_suma_tres_cinco():
     assert resultado == 8
 ```
 
-Si ahora ejecutamos en la terminal:
+Ahora ejecutamos en la terminal:
 
 ```bash
 pytest
 ```
 
-Si los tests son correctos veremos algo así. La última línea (`1 passed`) nos indica que nuestro programa ha superado la prueba:
+En caso de que los tests son correctos veremos algo así. La última línea (`1 passed`) nos indica que nuestro programa ha superado la prueba:
 
 ```
 ==================================================== test session starts ====================================================
@@ -82,7 +82,7 @@ tests\test_operaciones.py .                                                     
 ===================================================== 1 passed in 0.04s =====================================================
 ```
 
-Si en lugar de `pytest` usamos la opción `-v` (*verbose*), le indicamos que queremos un resultado más detallado:
+Podemos usar la flag `-v` (*verbose*), para indicar que queremos un resultado más detallado:
 
 ```
 pytest -v
@@ -261,7 +261,7 @@ En un flujo normal:
 3. Con esa conexión creamos un cursor para navegar y operar.
 4. En base a ese cursor obtenemos registros o IDs.
 
-Para verificar nuestro código sin depender del entorno externo, dividimos el test en 3 fases: **Preparación**, **Acción** y **Verificación**.
+Para verificar nuestro código sin depender del entorno externo, dividimos el test en 3 fases: **Preparación**, **Acción** y **Verificación** (**Arrange**, **Act**, **Assert**).
 
 Crea un módulo llamado `test_crud.py` con las siguientes importaciones:
 
@@ -347,7 +347,7 @@ Ahora tenemos 4 casos de uso a testear (uno de éxito y tres de control de error
 
 ### Primer caso de uso: Suma correcta
 ```py
-def test_suma_correct():
+def test_suma_correct(): # Happy Path
     assert suma(3, 5) == 8
 ```
 
@@ -381,6 +381,13 @@ def test_suma_overflow_error():
 - **Tests con dependencias externas:** Verifican la comunicación con dependencias externas como APIs o servicios remotos.
 
 Ejemplo con una API externa:
+
+> [!NOTE]
+> La librería requests hay que instalarla ya que no viene incluida con python.
+
+```bash
+pip install requests
+```
 
 ```py
 import requests

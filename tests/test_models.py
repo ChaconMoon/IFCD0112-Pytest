@@ -23,20 +23,28 @@ def test_user_rejects_invalid_email(email):
         User("usuario01", email, "Clave123!")
 
 
-@pytest.mark.parametrize("password",["clave123!", "CLAVE123!", "Claveabc!", "Clave123"],
+@pytest.mark.parametrize(
+    "password",
+    ["clave123!", "CLAVE123!", "Claveabc!", "Clave123"],
 )
 def test_user_rejects_password_without_required_character_type(password):
     with pytest.raises(ValueError, match="contraseña"):
         User("usuario01", "usuario@example.com", password)
 
+
 def test_user_printable_representation():
     user = User("usuario01", "usuario@example.com", "Clave123!")
-    assert repr(user) == f"Usuario: {user.username}\nEmail: {user.email}\nContraseña: {user.password}"
+    assert (
+        repr(user)
+        == f"Usuario: {user.username}\nEmail: {user.email}\nContraseña: {user.password}"
+    )
+
 
 def test_change_username_accepts_valid_username():
     user = User("usuario01", "usuario@example.com", "Clave123!")
     user.change_username("nuevoUsuario")
     assert user.username == "nuevoUsuario"
+
 
 @pytest.mark.parametrize("new_username", ["corto", "a" * 17])
 def test_change_username_rejects_invalid_username(new_username):
